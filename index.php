@@ -1,5 +1,11 @@
 <?php
 session_start();
+// empty() = kosong
+if (empty($_SESSION["NAMA"])) {
+  header("location:login.php?login=gagal");
+}
+
+
 include 'koneksi.php';
 include 'function/helper.php';
 ?>
@@ -34,6 +40,7 @@ include 'function/helper.php';
     <footer class="text-center border-top fixed-bottom p-3">Copyright &copy; 2024 PPKD - Jakarta Pusat.</footer>
   </div>
   <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/dist/app.js"></script>
 </body>
 
 </html>
