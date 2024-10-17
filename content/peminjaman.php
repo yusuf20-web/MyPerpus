@@ -1,5 +1,5 @@
 <?php
-$peminjaman = mysqli_query($koneksi, "SELECT anggota.nama_anggota, peminjaman.* FROM peminjaman LEFT JOIN anggota ON anggota.id = peminjaman.id_anggota ORDER BY peminjaman.id DESC");
+$peminjaman = mysqli_query($koneksi, "SELECT * FROM peminjaman LEFT JOIN anggota ON anggota.id = peminjaman.id_anggota ORDER BY peminjaman.id DESC");
 ?>
 <div class="container">
     <div class="row">
@@ -18,8 +18,8 @@ $peminjaman = mysqli_query($koneksi, "SELECT anggota.nama_anggota, peminjaman.* 
                                 <th>No Pinjaman</th>
                                 <th>Tanggal Pinjam</th>
                                 <th>Tanggal Pengembalian</th>
-                                <th>Status</th>
                                 <th>Aksi</th>
+                                <!-- <th>Status</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -29,14 +29,14 @@ $peminjaman = mysqli_query($koneksi, "SELECT anggota.nama_anggota, peminjaman.* 
                             ?>
                                 <tr>
                                     <td><?php echo $no++ ?></td>
-                                    <td><?php echo $rowPeminjaman['nama_anggota'] ?></td>
+                                    <td><?php echo $rowPeminjaman['id_anggota'] ?></td>
                                     <td><?php echo $rowPeminjaman['no_pinjaman'] ?></td>
                                     <td><?php echo $rowPeminjaman['tanggal_pinjam'] ?></td>
                                     <td><?php echo $rowPeminjaman['tanggal_pengembalian'] ?></td>
-                                    <td><?php echo $rowPeminjaman['status'] ?></td>
+                                    <!-- <td></td> -->
                                     <td>
-                                        <a id="edit-peminjaman" data-id="<?php echo $rowPeminjaman['id'] ?>" href="?pg=tambah-peminjaman&edit=<?php echo $rowPeminjaman['id'] ?>"
-                                            class="btn btn-success btn-sm">Edit
+                                        <a id="edit-peminjaman" data-id="<?php echo $rowPeminjaman['id'] ?>" href="?pg=tambah-peminjaman&detail=<?php echo $rowPeminjaman['id'] ?>"
+                                            class="btn btn-success btn-sm">Detail
 
                                         </a> |
                                         <a

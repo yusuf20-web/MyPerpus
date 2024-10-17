@@ -1,5 +1,5 @@
 <?php
-$anggota = mysqli_query($koneksi, "SELECT anggota.nama_anggota, peminjaman.* FROM peminjaman LEFT JOIN anggota ON anggota.id = peminjaman.id_anggota ORDER BY peminjaman.id DESC");
+$anggota = mysqli_query($koneksi, "SELECT * FROM anggota ORDER BY id DESC");
 ?>
 <div class="container">
     <div class="row">
